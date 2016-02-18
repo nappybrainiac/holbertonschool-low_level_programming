@@ -1,55 +1,75 @@
 #include "my_functions.h"
 
+/* This program has been created to print individual 
+   characters in a number string, without the use of
+   the stdio.h library
+
+   The algorithm that has been created for this purpose
+   will do the following things:
+
+   1. It will divide the number by increasing values
+      of the multiples of 10, to find out if it is a
+      hundredth, or thousandth, and so on.
+   2. Finally, it will print out the numbers one by one.
+*/
+
+
 /* Main Function */
+
+
 
 void print_number (int n) {
 
-  /* Declaring variables*/
+  /*------------ Declaring the variables --------------*/
 
-  int numStore;
-  int i = n;
-  int num = n;
-  int num_re = n;
+  int numStore = n;
+  int numPrint;
   int power = 10;
-  int count;
-  int num_p;
- 
 
-
-  /* if statements */
+  /*----------------- if statements -------------------*/
  
-  if (n == 0) {
+  if (n == 0) {             /* If the number is 0 print '0' */ 
     print_char('0');
   }
 
-  if (n < 0) {
-    print_char('-');
-    numStore = n * -1;
-    i = n * -1;
-    num = n * -1;
+  if (n < 0) {             
+    print_char('-');       /* If the number is -ve print '-'*/
+    n = n * -1;            /* Make the number +ve */
   }
 
-  /* The Loops */
+  numStore = n;
+  
+
+  /*--------------------- The Loops -------------------*/
 
 
-  /* The Count */
+  /* This loop is to help find the first multiple of 10
+     that n should be divided by in the final printing
+     loop.*/
 
-  while(num_re > 0) {             /* To find out what multiple of 10 should be used */
-    num_re= numStore / power;
+
+  while(numStore > 9) {
+    numStore = numStore / 10;
     power = power * 10;
   }
-  power = power / 10;
-  
-  while(i > 0) {                    /* To find out how many times the print loop should run */
-  i = i / 10;
-  count = count + 1;
- }
 
-  while(count > 0) {                 /* To print the numbers one by one */
-  num_p = num / power;
-  print_char(48 + num_p);
-  num = num - (num_p * 10);
-  power = power/10;
-  count = count - 1;
- } 
+  numStore = n; 
+  power = power / 10;
+
+   /* The first loop will generate a multiple of 10 that is 
+      10 times greater than the actual value we need. So 
+      it has to be set.*/
+
+
+  /* This loop is used to print out the characters in
+     the number string, one by one, through a set of 
+     mathematical operations.*/
+
+  while(numStore > 0) {
+    
+    numPrint = numStore / power;
+    print_char(48 + numPrint);
+    numStore = numStore % power;
+    power = power / 10;
+    } 
 }
