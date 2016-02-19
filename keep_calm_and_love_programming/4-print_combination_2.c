@@ -16,7 +16,14 @@ void print_combination_2(void)
 	{
 	  print_char((num1 + 48));
 	  print_char((num2 + 48));
-	  print_char(' ');
+
+	  /*This conditional makes sure that the last number is
+            not printed with a ", " following it*/
+	  if(num1 < 8)
+	    {
+	      print_char(',');
+	      print_cjar(' ');
+	    }  
 	}
     }
 }
