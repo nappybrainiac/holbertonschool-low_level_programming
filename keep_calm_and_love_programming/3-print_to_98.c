@@ -18,5 +18,5 @@ void print_to_98(int num)
       num = num - 1;
     } 
   /*If the number is 98*/
-  printf("%d, ", num);
+  printf("%d\n", num);
 }
