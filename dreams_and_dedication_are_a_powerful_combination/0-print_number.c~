@@ -30,9 +30,9 @@ void print_number (int n) {
 
   /*----------------- if statements -------------------*/
  
-    if (n == 0) {             /* If the number is 0 print '0' */ 
-    print_char('0');
-      }
+  /*  if (n == 0) {             /* If the number is 0 print '0' */ 
+  /*  print_char('0');
+      }*/
 
   if (n < 0) {             
     print_char('-');       /* If the number is -ve print '-'*/
