@@ -9,6 +9,7 @@ void print_combination_1(void){
   while(n < 9){
     print_char(48 + n);
     print_char(',');
+    print_char(' ');
     n++;
   }
 

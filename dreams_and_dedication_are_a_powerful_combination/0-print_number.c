@@ -3,10 +3,8 @@
 /* This program has been created to print individual 
    characters in a number string, without the use of
    the stdio.h library
-
    The algorithm that has been created for this purpose
    will do the following things:
-
    1. It will divide the number by increasing values
       of the multiples of 10, to find out if it is a
       hundredth, or thousandth, and so on.
@@ -24,6 +22,15 @@ void print_number (int n) {
   int numPrint;
   int power = 10;
 
+  if(n == -2147483648){
+    print_char('-');
+    print_char('2');
+    n = 147483648;
+  }
+  if(n == 2147483647){
+    print_char('2');
+    n = 147483647;
+  }
   if (n == 0) {             /* If the number is 0 print '0' */ 
     print_char('0');
   }
@@ -45,7 +52,7 @@ void print_number (int n) {
   numStore = n; 
   power = power / 10;
 
-   /* The first loop will generate a multiple of 10 that is 
+  /* The first loop will generate a multiple of 10 that is 
       10 times greater than the actual value we need. So 
       it has to be set.
       This loop is used to print out the characters in
@@ -57,5 +64,5 @@ void print_number (int n) {
     print_char(48 + numPrint);
     numStore = numStore % power;
     power = power / 10;
-    } 
+  } 
 }
