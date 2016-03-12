@@ -9,14 +9,16 @@ void print_array(int *a, int n){
   if(n <= 0){
     print_char('\n');
   }
-
     for(i = 0; i < n; i++){
-      print_number(*(a + i));
-      print_char(',');
-      print_char(' ');
+      if(i == (n - 1)){
+	print_number(*(a + i));
+      } else {
+	print_number(*(a + i));
+	print_char(',');
+	print_char(' ');
+      }
     }
     print_char('\n');
-
 }
 
 
@@ -34,10 +36,22 @@ void print_number(int num) {
     print_char('0');
   }
 
-  if (num < 0) {             
-    print_char('-');       /* If the number is -ve print '-'*/
-    num = num * -1;            /* Make the number +ve */
+  if(num == -2147483648){     /* To accommodate INT_MIN */
+    print_char('-');
+    print_char('2');
+    num = 147483648;
   }
+
+  if(num == 2147483647){      /* To accommodate INT_MAX*/
+    print_char('2');
+    num = 147483647;
+  }
+
+  if (num < 0) {
+    print_char('-');          /* If the number is -ve print '-'*/
+    num = num * -1;           /* Make the number +ve */
+  }
+
 
   numStore = num;
   
