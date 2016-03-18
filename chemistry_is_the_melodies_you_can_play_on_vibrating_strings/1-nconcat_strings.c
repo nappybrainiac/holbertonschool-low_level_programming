@@ -2,9 +2,9 @@
 
 char *nconcat_strings(char *dest, const char *src, int n){
 
-  /* This function takes two character arrays as parameters,
-   and adds the characters of *src at the end of *dest, just
-   like strcat would. */
+  /* This function takes two character arrays and an integer 
+     as parameters. n number of characters from src are added
+     to dest. It works like strncat. */
 
     int i;
     int j;
