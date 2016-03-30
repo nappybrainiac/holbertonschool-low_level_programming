@@ -1,23 +1,26 @@
-/* This function calculates the natural square root
-   of a number (as long as the root is less than
-   100,000,000. */
+/* These functions are used to find out whether
+   a number is a perfect square, and display
+   it on the console.
 
-int square_root(int n) {
+   Because it requires 2 variables, a second
+   function was created to handle the
+   recursion, and called in the initial function.*/
 
-  int x;
-  
-  if(n < 1) {
+int square_or_nah(int n, int i){
+  /* No perfect squares for negative numbers. */
+  if(n < 0){
     return -1;
   }
-
-  for(x = 1; (x * x) != n; x++){
-    /* This checks to find out if the number 
-       becomes outrageously large. It's a hack
-       but works for the current main.c file.*/
-    if (x > 100000000){
-      return -1;
-    }
+  if(n == i * i){
+    return i;
   }
-  return x;
+  if(i * i > n){
+    return -1;
+  }
+  return square_or_nah(n, i + 1);
+}
 
+
+int square_root(int n){
+  return square_or_nah(n, 1);
 }
