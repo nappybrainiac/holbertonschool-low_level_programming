@@ -1,10 +1,10 @@
 /* To determine the length of the string */
-int length(char *str){
-  int length = 0;
-  while( *(str+length) != '\0' ){
-    length++;
+int length(char *str, int i){
+
+  if(*(str + i) == 0){
+    return i;
   }
-  return length;
+  return length(str, i + 1);
 }
 
 /* Are the characters the same at the end 
@@ -25,6 +25,6 @@ int palindrome_or_nah(char *s, int length, int i)
 int is_palindrome(char *s)
 {  
   int str_length;  
-  str_length = length(s);
+  str_length = length(s, 0);
   return palindrome_or_nah(s, str_length ,0);
 }
