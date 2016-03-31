@@ -9,10 +9,6 @@ int prime_or_nah(int n, int i){
   /* A number is considered to be a prime number
      if it's only factors are 1 and itself.*/
 
-  if(n < 0){
-    n = n * -1;
-  }
-
   if(n < 2){                  /*n cannot be 0 or 1*/
     return 0;
   }else if(i > n - 1){        /*For i greater than n-1*/
