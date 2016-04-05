@@ -1,3 +1,6 @@
+/*This program prints out the arguments 
+  passed on the command line.*/
+
 #include <stdio.h>
 
 int main(int ac, char **av){
