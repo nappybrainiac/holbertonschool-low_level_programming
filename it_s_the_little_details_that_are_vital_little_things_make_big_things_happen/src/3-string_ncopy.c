@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 /* This function is a continuation of what strncat works like. */
 

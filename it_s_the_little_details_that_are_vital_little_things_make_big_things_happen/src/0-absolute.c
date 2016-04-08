@@ -1,7 +1,7 @@
-#include "my_functions.h"
+#include "../inc/../inc/my_functions.h"
 
 /* This function has been created to be included
-   in my_functions.h library.
+   in ../inc/my_functions.h library.
 
    It's primary purpose is to take the value of
    any integer an print its absolute value.

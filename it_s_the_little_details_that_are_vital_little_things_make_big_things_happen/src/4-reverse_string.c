@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 #include <unistd.h>
 
 int str_len(char *s){

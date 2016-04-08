@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 void positive_or_not(int n) /*This function tells you if a number is positive or negative*/
 {

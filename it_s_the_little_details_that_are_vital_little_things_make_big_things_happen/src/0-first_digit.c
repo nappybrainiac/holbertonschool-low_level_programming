@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 #include <limits.h>
 
 /* This program has been created to print the first

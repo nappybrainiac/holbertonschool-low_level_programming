@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 /* This function takes two character arrays as parameters,
    and adds the characters of *src at the end of *dest, just

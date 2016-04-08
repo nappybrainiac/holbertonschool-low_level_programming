@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 /* This is a function that reverses the content 
    of an array of integers. */

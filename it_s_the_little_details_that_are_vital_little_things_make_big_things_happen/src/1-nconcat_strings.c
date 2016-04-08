@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 char *nconcat_strings(char *dest, const char *src, int n){
 

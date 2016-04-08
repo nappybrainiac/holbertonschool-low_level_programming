@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/../inc/my_functions.h"
 
 /* This program has been created to print individual 
    characters in a number string, without the use of

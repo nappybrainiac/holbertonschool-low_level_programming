@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 /*   This function takes two character arrays and compares
      them. It works like strcmp. */

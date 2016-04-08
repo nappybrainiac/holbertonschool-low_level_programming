@@ -1,7 +1,7 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 /* This function has been created to be included in
-   the library my_functions.h.
+   the library ../inc/my_functions.h.
 
    It takes a lowercase character a-z then prints
    the uppercase equivalent, by using ASCII values

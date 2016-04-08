@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "../inc/my_functions.h"
 
 /* This function takes an array and a string of characters
    as parameters, then it copies the string into the array
