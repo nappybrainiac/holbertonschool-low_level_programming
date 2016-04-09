@@ -8,7 +8,7 @@ int main(int arc, char *argv[]){
   int number;
 
   if (arc != 4){
-    printf("Correct your entry");
+    printf("Incorrect number of arguments.\n");
   } else {
     i = atoi(argv[1]);
     j = atoi(argv[3]);
