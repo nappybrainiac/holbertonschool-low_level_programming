@@ -6,10 +6,20 @@ int main(int arc, char *argv[]){
   int i;
   int j;
   int number;
+  int (*p)(int, int);
 
-  if (arc != 4){
-    printf("Incorrect number of arguments.\n");
-  } else {
+  /*If there are more or less than 4 arguments...*/
+  if (arc != 4)
+    return 1;
+
+  p = get_op_func(*argv[2]);
+
+  /*If the second argument returns a value that
+    is not recognized...*/
+  if(*p == NULL)
+    return 1;
+
+  if(arc == 4){
     i = atoi(argv[1]);
     j = atoi(argv[3]);
 
