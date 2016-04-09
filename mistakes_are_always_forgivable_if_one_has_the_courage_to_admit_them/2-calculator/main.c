@@ -2,23 +2,19 @@
 #include <stdio.h>
 int (*get_op_func(char c))(int a, int b);
 
-int main(int arc, char *argv[])
-{
+int main(int arc, char *argv[]){
   int i;
+  int j;
+  int number;
 
-  int (*func)(int a, int b);
+  if (arc != 4){
+    printf("Correct your entry");
+  } else {
+    i = atoi(argv[1]);
+    j = atoi(argv[3]);
 
-  if (arc != 4)/*This is the parameters are incomplete, there has to be 4 ./a.out int char int*/
-    {
-      return 1;
-    }
-  func = get_op_func(*argv[2]);
-  if (func == 0)
-    {
-      return 1;
-    }
-  i = func(atoi(argv[1]),(atoi(argv[3])));
-  printf("%d\n",i);
+    number  = ((*get_op_func(*argv[2]))(i, j));
+    printf("%d\n", number);
+  }
   return 0;
-
 }
