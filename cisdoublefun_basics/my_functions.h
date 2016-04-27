@@ -6,3 +6,6 @@ void print_base16(void);        /* Prints the numbers that comprise base 16 */
 void positive_or_not(int n);    /* Prints P for positive, N for negative and Z
                                    for zero values*/
 char odd(int n);                /* Prints 0 for odd and E for even numbers*/
+void print_triangle(int n);     /* Prints a triangle of n height */
+void print_combination_3(void); /* Prints all possible combinations of 3 digit
+                                   numbers */
