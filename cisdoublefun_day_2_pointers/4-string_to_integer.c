@@ -9,7 +9,7 @@ int length_of_number(char *s){
         if(*(s + adv) >= '0' && *(s + adv) <= '9'){
           length++;
           /* If there is a space after the number, exit the loop */
-          if(*(s + (adv + 1)) == ' '){
+          if(*(s + (adv + 1)) > '9' || *(s + (adv + 1)) < '0'){
             break;
           }
         }
@@ -52,8 +52,8 @@ int string_to_integer(char *s){
   /* Loop to determine +vity or -vity */
   while(*(s + j) != '\0'){
     if(*(s + j) == '-'){
-      if(*(s + (j + 1)) == ' '){  /* To stop the search for '-' in
-                                    the string */
+      if(*(s + (j + 1)) > '9' || *(s + (j + 1)) < '0'){
+        /* To stop the search for numbers in the string */
         break;
       }
       neg *= -1;
@@ -72,7 +72,7 @@ int string_to_integer(char *s){
                                     only multiplied by 1 */
       /* To check if the number is going to be greater than an int
          can hold */
-      if(total == 2147483640 && num_temp > 7 && neg != -1){
+      if(total == 2147483640 && num_temp > 7 && neg == 1){
         return 0;
       }
       total += num_temp;         /* Add the value to total */
