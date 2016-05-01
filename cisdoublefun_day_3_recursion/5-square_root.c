@@ -1,6 +1,6 @@
-int finding_square(int n, int i){
+int finding_square(int n, int i){ /* New function with two arguments */
 
-  if(i == 1){
+  if(i == 1){     /* When it reaches 1, then this number has no root */
     return -1;
   }
   if(n < 0) {
