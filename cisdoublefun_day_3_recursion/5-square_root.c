@@ -15,7 +15,7 @@ int finding_square(int n, int i){ /* New function with two arguments */
     return i;
   }
 
-  return finding_square(n, (i-1));
+  return finding_square(n, (i - 1));
 }
 
 int square_root(int n){
