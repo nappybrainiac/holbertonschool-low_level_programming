@@ -3,3 +3,5 @@ char *string_ncopy(char *dest, const char *src, int n);
 char *rev_string(char *str);
 char *string_string(const char *haystack, const char *needle);
 int strings_compare(char *s1, const char *s2);
+int strings_n_compare(char *s1, const char *s, size_t n);
+char *uppercase_string(char *);
