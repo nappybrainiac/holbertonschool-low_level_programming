@@ -1,4 +1,3 @@
-
 # Specify the target file, flags, commands, and the install directory
 
 CFLAGS = -Wall -pedantic -Werror -Wextra
@@ -10,17 +9,19 @@ SOURCE = print_char.c 4-positive_or_not.c 0-print_number.c 0-absolute.c 1-upperc
 
 OBJECTS = $(SOURCE:.c=.o) #To convert .c files to .o files
 
-
 # Default target
 all: libholbertonschool.a clean
 
+# To create the file libholbertonschool.a
 libholbertonschool.a: $(OBJECTS)
 	ar -rc libholbertonschool.a $(OBJECTS)
 	ranlib libholbertonschool.a
 
+# Running compilation using holbertonschool.h as header
 %.o : src/%.c inc/holbertonschool.h
 	$(CCOM) $(CFLAGS) $< -o $@
 
+# Clean up directory by deleting all .o files
 .PHONY: clean
 clean:
 	rm -rf $(OBJECTS)
