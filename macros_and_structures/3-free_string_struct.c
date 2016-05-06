@@ -18,8 +18,8 @@ void free_string_struct(struct String *str){
                    * that has been assigned by calloc, realloc and malloc.
                    */
 
-                /* Check the memory to find out whether the function
-                 * worked correctly by using:
-                 * valgrind 3-free_string_struct
-                 */
+  /* Check the memory to find out whether the function
+   * worked correctly by using:
+   * valgrind 3-free_string_struct
+   */
 }
