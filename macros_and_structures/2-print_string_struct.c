@@ -49,13 +49,8 @@ void print_number (int n) {
   if (n == 0) {             /* If the number is 0 print '0' */
     print_char('0');
   }
-  if (n < 0) {
-    print_char('-');       /* If the number is -ve print '-'*/
-    n = n * -1;            /* Make the number +ve */
-  }
 
   numStore = n;
-
 
   /*--------------------- The Loops -------------------*/
 
@@ -63,7 +58,6 @@ void print_number (int n) {
   /* This loop is to help find the first multiple of 10
      that n should be divided by in the final printing
      loop.*/
-
 
   while(numStore > 9) {
     numStore = numStore / 10;
@@ -77,13 +71,11 @@ void print_number (int n) {
       10 times greater than the actual value we need. So
       it has to be set.*/
 
-
   /* This loop is used to print out the characters in
      the number string, one by one, through a set of
      mathematical operations.*/
 
   while(numStore > 0) {
-
     numPrint = numStore / power;
     print_char(48 + numPrint);
     numStore = numStore % power;
