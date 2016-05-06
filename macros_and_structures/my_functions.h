@@ -20,3 +20,6 @@ void print_string_struct(struct String *str);
 /* This function frees up memory allocated to the structure by
    the previous function. */
 void free_string_struct(struct String *str);
+
+/* This function prints only one character using it's ASCII number */
+int print_char(char c);
