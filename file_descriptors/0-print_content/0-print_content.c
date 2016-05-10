@@ -12,14 +12,14 @@
 
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdio.h>
+#define BUFSIZ 1024
 
 int main(int argc, char *argv[]){
   int i;
   int fd;
   char buf[BUFSIZ];
 
-  if(argc < 2){
+  if(argc < 2){    /* Return 1 if there are no arguments */
     return 1;
   }
 
@@ -29,10 +29,13 @@ int main(int argc, char *argv[]){
                                   * commands
                                   */
 
-  while((i = read(fd, buf, BUFSIZ)) > 0){
+  while((i = read(fd, buf, BUFSIZ)) > 0){ /* as long as fd has content
+                                           * print it to the output
+                                           * chosen.
+                                           */
     write(1, buf, i);
   }
 
-close(fd);
+close(fd);    /* Close the file that had been opened in line 26 */
 return 0;
 }
