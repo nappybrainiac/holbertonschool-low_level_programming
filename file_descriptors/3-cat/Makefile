@@ -11,7 +11,7 @@ all: $(EXECFILE) clean
 $(EXECFILE): $(OBJECTS)
 	gcc $(CFLAGS) $(OBJECTS) -o $(EXECFILE)
 
-0-print_content.o: 3-cat.c
+3-cat.o: 3-cat.c
 	gcc $(CFLAGS) -c 3-cat.c
 
 clean:
