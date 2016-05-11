@@ -12,7 +12,7 @@ all: $(EXECFILE) clean
 $(EXECFILE): $(OBJECTS)
 	gcc $(CFLAGS) $(OBJECTS) -o $(EXECFILE)
 
-0-print_content.o: 1-copy_content.c
+1-copy_content.o: 1-copy_content.c
 	gcc $(CFLAGS) -c 1-copy_content.c
 
 clean:
