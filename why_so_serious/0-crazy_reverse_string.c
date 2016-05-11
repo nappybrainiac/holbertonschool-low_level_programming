@@ -29,8 +29,10 @@ void crazy_reverse_string(char *s)
      {
           /* your code goes here only */
           /* you can only use s, l and i to complete the task */
+
           /* This method uses the bitwise operator XOR (^) to obtain
-           * a solution. */
+           * a solution.
+           */
           *(s + i) = *(s + i) ^ *(s + (l - (1 + i)));            /* a = a ^ b*/
           *(s + (l - (1 + i))) = *(s + i) ^ *(s + (l - (1 + i)));/* b = a ^ b*/
           *(s + i) = *(s + (l - (1 + i))) ^ *(s + i);            /* a = b ^ a*/
