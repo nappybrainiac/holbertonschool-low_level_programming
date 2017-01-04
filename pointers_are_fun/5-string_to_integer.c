@@ -1,11 +1,18 @@
-#include <stdio.h>
-
 /*
+By Gloria Mugarura, Pointers are fun project.
 
+Task 5.
 
-
-
-
+  This function returns the first number contained in
+  a string.
+    * The number in the string can be preceded by
+      an infinite number of characters.
+    * All the + and - signs need to be accounted for
+      odd number of -'s gives a -ve number.
+    * Numbers greater than INT_MAX or less than
+      INT_MIN must return a zero.
+    * If there are no numbers it must return a zero.
+    
 */
 
 
@@ -62,7 +69,8 @@ int string_to_integer(char *s)
     {
       /* converts char to number */
       num = num * 10 + (*(s + i) - 48);
-      if(num < 0)
+
+      if(num < 0) /* Up to this point all should be +ve */
       {
         flag = 1;
       }
