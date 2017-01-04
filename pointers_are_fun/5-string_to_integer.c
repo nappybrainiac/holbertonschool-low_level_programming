@@ -1,105 +1,89 @@
-int length (char *s);
-int expo (int length); 
-int negative (char *s);
-int string_to_integer (char *s)
+#include <stdio.h>
+
+/*
+
+
+
+
+
+*/
+
+
+/* This function returns the length
+   of a string */
+   int str_len(char *s){
+
+     int len = 0;
+
+     while (*(s + len) != 0){   /*All strings in C end with '0' so we use it */
+       len ++;                  /*to detect the end of the string.*/
+     }
+     return len;
+   }
+
+/* This function counts the number
+   of "-" in the string and returns
+   -1 for odd values and 1 for even
+   values */
+int negation(char *s)
 {
-  int i;
-  int number = 1;    
-  int l;  
-  int e; 
-  int n; 
-  int tmp = 0; 
-  /*holds the length of the number*/
-  l = length(s);
-  if(l > 10)
-    {
-      return 0; 
+  int i = 0;
+  int j = str_len(s);
+  int neg = 1;
+
+
+  for(i = 0; i < j; i++){
+
+    if(*(s + i) == 45){
+      neg *= -1;
     }
-  /*Holds the power of the number*/
-  e = expo(l);
-  for (i = 0 ; s[i]; i++)
+    if(*(s + i + 1) > 47 && *(s + i + 1) < 58)
     {
-      /*Converts the numbert to a digit*/
-      number = (s[i] - 48);
-      /*checks if the number is between the numeric values*/ 
-      if (number >= 0 && number <= 9)
-	{ 
-	  /*Increases number by its power*/
-	  number = number * e;
-	  /*reduces the power by 10*/
-	  e = e/10 ; 
-	  /*Checks for numbers bigger that the INT_MAX*/
-	  if (tmp == 2147483640 && number > 7 && negative(s) != -1)
-	    {
-	      return 0 ; 
-	    }
-	  number += tmp;
-	  /*Temporary stores the value of the number so that it can change and latter by added to itself*/
-	  tmp = number;
-	  /*checks for space after each number*/
-	  if (s[i +1] == ' ')
-            {
-	      n = negative (s);
-	      number *= n;
-              break;
-	    }  
-	}
+      break;
     }
-  n = negative (s); 
-  number *= n;
-  return  number; 
+
+  }
+  return neg;
 }
 
-/*Checks for negatives*/
-int negative (char *s)
+/* This function takes a number as a string
+   and converts it to an integer */
+int string_to_integer(char *s)
 {
-  int i; 
-  int negative  = 1; 
-  for ( i = 0 ; s[i]; i++)
-    {
-      if (s[i] == '-')
-        {
-	  negative *= -1; 
-        }
+  int length = str_len(s);
+  int neg = negation(s);
+  int i = 0;
+  int num = 0;
+  int flag = 0;
 
+  while(i < length){
+    /* if the char is a number */
+    if(*(s + i) > 47 && *(s + i) < 58)
+    {
+      /* converts char to number */
+      num = num * 10 + (*(s + i) - 48);
+      if(num < 0)
+      {
+        flag = 1;
+      }
+      if(*(s + i + 1) < 48 || *(s + i + 1) > 57)
+      {
+        break;
+      }
     }
-  return negative; 
-}
+    i++;
+  }
 
-/*Calculates the exponent of the number*/
-
-int expo(int length)
-{
-  int expo = 1; 
-  while (length > 1) 
-    {
-      expo = expo * 10; 
-      length--; 
-      /*      printf("power ---> %d",expo); */
-    }
-  
-  return expo; 
-} 
-
-/*Calcualtes the length of the number*/
-int length(char *s)
-{
-  int l  = 0;
-  int number;
-  int i;   
-  for ( i = 0 ; s[i] ; i++)
-    {
-      number = (s[i] - 48);
-
-      if (number >= 0 && number <= 9)
-        {
-	  l++; 
-	  /*checks for space after each number*/
-	  if (s[i +1] == ' ')                                                                                                                        
-	    {                                                                                                                                     
-	      break;                                                                                                                                   
-	    }
-        }
-    } 
-  return l; 
+  /* Error checking */
+  if(neg == -1 && num == -2147483648)
+  {
+    return num;
+  } else if(flag == 1)
+  {
+    return 0;
+  } else
+  {
+    num = num * neg;
+  }
+  return num;
 }
