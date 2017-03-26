@@ -1,25 +1,17 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "lists.h"
+#pragma once
 
 /**
- * print_listint - function that prints the values of each node and
- * returns the number of elements in a linked listint_t list.
- * @h: The head node in the linked list.
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
  *
- * Return: The size of the linked list or node count.
+ * Description: singly linked list node structure
+ * for Holberton project
  */
-size_t print_listint(const listint_t *h)
+typedef struct listint_s
 {
-	size_t count;
+	int n;
+	struct listint_s *next;
+} listint_t;
 
-	count = 0;
-
-	while (h != NULL)
-	{
-		printf("%d\n", h->n);
-		h = h->next;
-		count++;
-	}
-	return (count);
-}
+size_t print_listint(const listint_t *h);
