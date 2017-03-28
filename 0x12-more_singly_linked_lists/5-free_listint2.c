@@ -18,12 +18,14 @@ void free_listint2(listint_t **head)
 	{
 		return;
 	}
-
-	while (current)
+	else
 	{
-		node_tr = current->next;
-		free(current);
-		current = node_tr;
+		while (current)
+		{
+			node_tr = current->next;
+			free(current);
+			current = node_tr;
+		}
 	}
 	*head = NULL;
 }
