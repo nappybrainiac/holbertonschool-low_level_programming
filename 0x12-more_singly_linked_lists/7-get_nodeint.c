@@ -7,7 +7,7 @@
  * @head: Current head node of type struct listint_t.
  * @index: The node number in the list.
  *
- * Return: returns the value n, of the popped node.
+ * Return: returns the value n, of the node at the index.
  */
 
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)

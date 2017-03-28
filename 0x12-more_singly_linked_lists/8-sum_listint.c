@@ -2,12 +2,10 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - returns the value of a node at a
- * specific index.
+ * sum_listint - returns the sum of the node values.
  * @head: Current head node of type struct listint_t.
- * @index: The node number in the list.
  *
- * Return: returns the value n, of the popped node.
+ * Return: returns the sum of all nodes in the list.
  */
 
 int sum_listint(listint_t *head)
