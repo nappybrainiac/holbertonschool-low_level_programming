@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include "lists.h"
 
-/* Adds a new node to the beginning of a linked list */
+/**
+ * add_nodeint - Adds a new node to the top of a linked list.
+ * @head: Current head node of type struct listint_t.
+ * @n: The value for the new node.
+ *
+ * Return: listint_t.
+ */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
 	listint_t *new_node;
