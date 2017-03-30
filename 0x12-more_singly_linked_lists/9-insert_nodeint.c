@@ -8,25 +8,8 @@
  * @idx: Index where the node is to be inserted.
  * @n: new node's data
  *
- * listint_len - returns the number of nodes in a linked list.
- * @h: current head node.
- *
  * Return: returns the sum of all nodes in the list.
  */
-
-size_t listint_len(const listint_t *h)
-{
-	size_t i = 0;
-	const listint_t *head = h;
-
-	while (head != NULL)
-	{
-		head = head->next;
-		i++;
-	}
-
-	return (i);
-}
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
@@ -39,6 +22,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	new_node = malloc(sizeof(listint_t));
 	new_node->n = n;
 	new_node->next = NULL;
+	/* does the list exist? Is the index +ve whole number? */
 	if (head == NULL)
 	{
 		*head = new_node;
@@ -52,20 +36,20 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			*head = new_node;
 			return (new_node);
 		}
-		else if (idx > listint_len(*head))
-		{
-			return (NULL);
-		}
 		else
 		{
+			/* iterate through list to reach (idx-1)th node */
 			while (i < (idx - 1))
 			{
-				current = current->next; i++;
+				current = current->next;
+				i++;
 			}
+			/* break connections between nodes where new node should go */
 			post_node = current->next->next;
 			current->next = new_node;
 			new_node->next = post_node;
+			return (new_node);
 			}
 	}
-	return (new_node);
+	return (NULL);
 }
