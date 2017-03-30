@@ -15,14 +15,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *current; /* tracker pointer */
 	listint_t *new_node; /* new node pointer */
-	listint_t *post_node; /* node right after new_node */
+	listint_t *post_node; /* pointer after new node.*/
 	unsigned int i = 0; /* iterator */
 
 	current = *head;
 	new_node = malloc(sizeof(listint_t));
 	new_node->n = n;
 	new_node->next = NULL;
-
 	/* does the list exist? Is the index +ve whole number? */
 	if (head == NULL)
 	{
@@ -37,10 +36,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			*head = new_node;
 			return (new_node);
 		}
-		else if (idx > listint_len(*head))
-		{
-			return (NULL);
-		}
 		else
 		{
 			/* iterate through list to reach (idx-1)th node */
@@ -50,13 +45,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 				i++;
 			}
 			/* break connections between nodes where new node should go */
-
-			/* I sink, Zee error is in heeya... current -> new -> post*/
+			post_node = current->next->next;
 			current->next = new_node;
 			new_node->next = post_node;
 			}
 	}
-
-
 	return (new_node);
 }
