@@ -11,6 +11,20 @@
  * Return: returns the sum of all nodes in the list.
  */
 
+ size_t listint_len(const listint_t *h)
+ {
+ 	size_t i = 0;
+ 	const listint_t *head = h;
+
+ 	while (head != NULL)
+ 	{
+ 		head = head->next;
+ 		i++;
+ 	}
+
+ 	return (i);
+ }
+
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *current; /* tracker pointer */
@@ -35,6 +49,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			new_node->next = *head;
 			*head = new_node;
 			return (new_node);
+		}
+		else if (idx > listint_len(*head))
+		{
+			return (NULL);
 		}
 		else
 		{
