@@ -23,16 +23,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	new_node->n = n;
 	new_node->next = NULL;
 
-	if (idx == 0) /* idx == 0, therefore new_node is head */
-	{
-		new_node->next = *head;
-		*head = new_node;
-		return (new_node);
-	}
-	if (idx > listint_len(*head))
-	{
-		return (NULL);
-	}
 	/* does the list exist? Is the index +ve whole number? */
 	if (head == NULL)
 	{
@@ -41,16 +31,31 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	else
 	{
-		/* iterate through list to reach (idx-1)th node */
-		while (i < (idx - 1))
+		if (idx == 0) /* idx == 0, therefore new_node is head */
 		{
-			current = current->next;
-			i++;
+			new_node->next = *head;
+			*head = new_node;
+			return (new_node);
 		}
-		/* break connections between nodes where new node should go */
-		pre_node = current->next;
-		current->next = new_node;
-		new_node->next = post_node;
+		else if (idx > listint_len(*head))
+		{
+			return (NULL);
 		}
+		else
+		{
+			/* iterate through list to reach (idx-1)th node */
+			while (i < (idx - 1))
+			{
+				current = current->next;
+				i++;
+			}
+			/* break connections between nodes where new node should go */
+			pre_node = current->next;
+			current->next = new_node;
+			new_node->next = post_node;
+			}
+	}
+
+
 	return (new_node);
 }
