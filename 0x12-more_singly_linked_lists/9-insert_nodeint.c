@@ -23,7 +23,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	new_node->n = n;
 	new_node->next = NULL;
 	/* does the list exist? Is the index +ve whole number? */
-	if (head == NULL)
+	if (*head == NULL)
 	{
 		*head = new_node;
 		return (new_node);
