@@ -15,7 +15,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *current; /* tracker pointer */
 	listint_t *new_node; /* new node pointer */
-	listint_t *pre_node, *post_node; /* nodes on either side of new node */
+	listint_t *post_node; /* node right after new_node */
 	unsigned int i = 0; /* iterator */
 
 	current = *head;
@@ -50,7 +50,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 				i++;
 			}
 			/* break connections between nodes where new node should go */
-			pre_node = current->next;
+
+			/*Zee error is in heeya... current -> new -> post*/
 			current->next = new_node;
 			new_node->next = post_node;
 			}
