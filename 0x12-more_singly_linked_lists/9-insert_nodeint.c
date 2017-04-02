@@ -5,7 +5,7 @@
  * insert_nodeint_at_index - returns a node that has been
  * inserted at a specific index.
  * @head: Current head node of type struct listint_t.
- * @idx: Index where the node is to be inserted.
+ * @index: Index where the node is to be inserted.
  * @n: new node's data
  *
  * Return: returns the sum of all nodes in the list.
