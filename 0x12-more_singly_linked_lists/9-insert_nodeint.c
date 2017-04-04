@@ -45,8 +45,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 			/* break connections between nodes where new node should go */
 			post_node = current->next->next;
 			current->next = new_node;
-			new_node->next = post_node;
 			}
+		new_node->next = post_node;
 	}
 	return (new_node);
 }
