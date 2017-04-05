@@ -18,6 +18,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	unsigned int i = 0; /* iterator */
 
 	current = *head;
+	if (*head == NULL)
+	{
+		return (-1);
+	}
 	while (current != NULL) /* iterate through the list */
 	{
 		if (index == 0)
