@@ -26,10 +26,10 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	p = format;
 	length = 0; count = 0;
+	if (*p == '\0')
+		return (-1);
 	for (p = format; *p != '\0'; p++)
 	{
-		if (!(*p))
-			return (-1);
 		if (*p != '%')
 		{
 			print_char(*p);
