@@ -1,3 +1,5 @@
+## Exploring printf ##
+
 This is an exploration of the complexities of the printf function
 and a recreation of that function.
 
