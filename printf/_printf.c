@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 			case '%':
 				print_char('%');
 				length++; break;
-			case ('d' || 'i'):
+			case 'd': case 'i':
 				i = va_arg(ap, int);
 				print_number(i);
 				length += 4; break;
