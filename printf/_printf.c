@@ -18,26 +18,22 @@
 
 int _printf(const char *format, ...)
 {
-	 const char *p;
-	 int i, length, len_s;
-	 char *s;
-	 va_list ap;
+	const char *p;
+	int i, length, len_s;
+	char *s;
+	va_list ap;
 
-	 va_start(ap, format);
-	 p = format;
-	 length = 0;
-
+	va_start(ap, format);
+	p = format;
+	length = 0;
 	for (p = format; *p != '\0'; p++)
 	{
 		if (!(*p))
 			return (-1);
-
 		if (*p != '%')
 		{
 			print_char(*p);
-			length++;
-			continue;
-
+			length++; continue;
 		}
 		p++;
 		switch (*p)
@@ -45,25 +41,19 @@ int _printf(const char *format, ...)
 			case 'c': /* a single character */
 				i = va_arg(ap, int);
 				print_char(i);
-				length++;
-				break;
+				length++; break;
 			case 's': /* a string */
 				s = va_arg(ap, char *);
 				print_string(s);
 				len_s = str_len(s);
-				length += len_s;
-				break;
+				length += len_s; break;
 			case '%':
 				print_char('%');
-				length++;
-				break;
-			case 'i':
-				/* fallthrough */
-			case 'd':
+				length++; break;
+			case ('d' || 'i'):
 				i = va_arg(ap, int);
 				print_number(i);
-				length += 4;
-				break;
+				length += 4; break;
 		}
 	}
 	va_end(ap);
